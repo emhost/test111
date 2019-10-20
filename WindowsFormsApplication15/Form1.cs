@@ -37,7 +37,7 @@ namespace WindowsFormsApplication15
                 m.SaveChanges();
                 t.Commit();
 
-                MessageBox.Show("sss");
+                MessageBox.Show("sss212");
             }
 
             using (Entities11 m = new WindowsFormsApplication15.Entities11())
