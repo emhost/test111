@@ -31,7 +31,7 @@ namespace WindowsFormsApplication15
                 var r1 = m.JZHZ.FirstOrDefault(a => a.ID == "1");
                 if (r1 != null)
                 {
-                    r1.VNAME = "asd";
+                    r1.VNAME = "asd123";
                 }
 
                 m.SaveChanges();
