@@ -1,0 +1,1372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model2.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_COST_INFO”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_COST_INFO">
+          <Key>
+            <PropertyRef Name="NFEE_ID" />
+            <PropertyRef Name="VCLINICNO" />
+            <PropertyRef Name="DFEE_DATE" />
+          </Key>
+          <Property Name="NFEE_ID" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="VCLINICNO" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="VITEM_NAME" Type="varchar2" MaxLength="100" />
+          <Property Name="DFEE_DATE" Type="date" Nullable="false" />
+          <Property Name="VITEM_UNITS" Type="varchar2" MaxLength="20" />
+          <Property Name="NITEM_PRICE" Type="number" Precision="12" Scale="4" />
+          <Property Name="NITEM_SL" Type="number" Precision="12" Scale="4" />
+          <Property Name="NITEM_MONEY" Type="number" Precision="14" Scale="2" />
+          <Property Name="VDEPARTNAME" Type="nvarchar2" MaxLength="40" />
+          <Property Name="VFEE_OPERATENAME" Type="varchar2" MaxLength="20" />
+          <Property Name="NBACK_SL" Type="number" Precision="12" Scale="4" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“YWAPP.V_DAOHANG_INFO”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="V_DAOHANG_INFO">
+          <Property Name="FLOORNAME" Type="varchar2" MaxLength="20" />
+          <Property Name="FLOORMAP" Type="blob" />
+          <Property Name="HOSPITALID" Type="varchar2" MaxLength="20" />
+          <Property Name="FLOORNUM" Type="varchar2" MaxLength="20" />
+          <Property Name="DEPARTCODE" Type="varchar2" MaxLength="36" />
+          <Property Name="ID" Type="varchar2" MaxLength="36" />
+          <Property Name="DEPARTNAME" Type="varchar2" MaxLength="20" />
+          <Property Name="FLOORNUMMAP" Type="blob" />
+          <Property Name="INID" Type="varchar2" MaxLength="36" />
+        </EntityType>-->
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_DICDEPART”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_DICDEPART">
+          <Key>
+            <PropertyRef Name="VDEPARTCODE" />
+            <PropertyRef Name="VDEPARTNAME" />
+            <PropertyRef Name="NOPHZID" />
+            <PropertyRef Name="NISDISABLED" />
+          </Key>
+          <Property Name="VDEPARTCODE" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="VDEPARTNAME" Type="nvarchar2" MaxLength="40" Nullable="false" />
+          <Property Name="NOPHZID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="PINYINMA" Type="varchar2" MaxLength="10" />
+          <Property Name="NISDISABLED" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="NHOSID" Type="number" Precision="10" Scale="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_EXAMITEMS_INFO”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_EXAMITEMS_INFO">
+          <Key>
+            <PropertyRef Name="VEXAM_ID" />
+            <PropertyRef Name="VPATIENT_ID" />
+            <PropertyRef Name="DAPPLY_DATE" />
+            <PropertyRef Name="VAPPLY_DEPT" />
+            <PropertyRef Name="VAPPLY_DOCTOR" />
+            <PropertyRef Name="NEXAM_RESULT" />
+            <PropertyRef Name="MZORZY" />
+          </Key>
+          <Property Name="VEXAM_ID" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="VPATIENT_ID" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="VEXAM_POSITION" Type="nvarchar2" MaxLength="70" />
+          <Property Name="DAPPLY_DATE" Type="date" Nullable="false" />
+          <Property Name="VAPPLY_DEPT" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="VAPPLY_DOCTOR" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="NEXAM_RESULT" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="MZORZY" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="VCLINICNO" Type="varchar2" MaxLength="20" />
+          <Property Name="DEXECUTE" Type="date" />
+          <Property Name="EXEDOCTORNAME" Type="nvarchar2" MaxLength="60" />
+          <Property Name="VITEMNAME" Type="nvarchar2" MaxLength="70" />
+          <Property Name="VUNITS" Type="varchar2" MaxLength="10" />
+          <Property Name="NACCOUNT" Type="number" Precision="3" Scale="0" />
+          <Property Name="VNAME" Type="nvarchar2" MaxLength="20" />
+          <Property Name="NSEX" Type="varchar2" MaxLength="4" />
+          <Property Name="NAGE" Type="varchar2" MaxLength="42" />
+          <Property Name="SQDEPARTNAME" Type="nvarchar2" MaxLength="40" />
+          <Property Name="SQDOCTORNAME" Type="nvarchar2" MaxLength="60" />
+          <Property Name="VRESULT_DESP" Type="varchar2" MaxLength="100" />
+          <Property Name="VDIAGNOSE" Type="varchar2" MaxLength="100" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_GH_RECORD”中的列“ID”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_GH_RECORD”中的列“VNAME”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_GH_RECORD”中的列“VSFZH”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_GH_RECORD”中的列“VDEPT”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_GH_RECORD”中的列“VDOCTOR”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_GH_RECORD”中的列“NGHF”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_GH_RECORD”中的列“NZLF”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_GH_RECORD”中的列“DGHRQ”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_GH_RECORD”中的列“VREMARKS”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_GH_RECORD”中的列“VCARD”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_GH_RECORD”中的列“NSEX”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_GH_RECORD”中的列“DBIRTHDAY”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_GH_RECORD”中的列“NPHONE”。
+警告 6013: 表/视图“YWAPP.V_GH_RECORD”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="V_GH_RECORD" />-->
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_GHSF_CARD”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_GHSF_CARD">
+          <Key>
+            <PropertyRef Name="VCARDNO" />
+            <PropertyRef Name="VCARDID" />
+            <PropertyRef Name="VPATIENTID" />
+            <PropertyRef Name="NCARDSTATE" />
+          </Key>
+          <Property Name="VCARDNO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="VCARDID" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="VPATIENTID" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="NCARDSTATE" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="VNAME" Type="nvarchar2" MaxLength="20" />
+          <Property Name="VIDNO" Type="varchar2" MaxLength="18" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“YWAPP.V_GHSF_JZ”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="V_GHSF_JZ">
+          <Property Name="VCLINICNO" Type="varchar2" MaxLength="20" />
+          <Property Name="VITEMID" Type="varchar2" MaxLength="50" />
+          <Property Name="VITEMNAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="NPRICE" Type="number" Precision="10" Scale="4" />
+          <Property Name="NCOSTS" Type="number" Precision="10" Scale="2" />
+          <Property Name="NACCOUNT" Type="number" Precision="10" Scale="2" />
+          <Property Name="DMEDICINEDATE" Type="date" />
+          <Property Name="VUNITS" Type="varchar2" MaxLength="10" />
+          <Property Name="VTYPENAME" Type="nvarchar2" MaxLength="50" />
+        </EntityType>-->
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_GHSF_REGHIS”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_GHSF_REGHIS">
+          <Key>
+            <PropertyRef Name="VCLINICNO" />
+            <PropertyRef Name="DVISITDATE" />
+            <PropertyRef Name="VNAME" />
+            <PropertyRef Name="PINYINMA" />
+            <PropertyRef Name="NSEX" />
+            <PropertyRef Name="DBIRTHDATE" />
+            <PropertyRef Name="VVISITDEPT" />
+          </Key>
+          <Property Name="VCLINICNO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="DVISITDATE" Type="date" Nullable="false" />
+          <Property Name="VAPPTIME" Type="varchar2" MaxLength="8" />
+          <Property Name="VPATIENTID" Type="varchar2" MaxLength="20" />
+          <Property Name="VNAME" Type="nvarchar2" MaxLength="20" Nullable="false" />
+          <Property Name="PINYINMA" Type="varchar2" MaxLength="60" Nullable="false" />
+          <Property Name="NSEX" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="DBIRTHDATE" Type="date" Nullable="false" />
+          <Property Name="NREGSTATUS" Type="number" Precision="1" Scale="0" />
+          <Property Name="VVISITDEPT" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="VDOCTOR" Type="varchar2" MaxLength="20" />
+          <Property Name="VIDNO" Type="varchar2" MaxLength="18" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_LABITEMS_INFO”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_LABITEMS_INFO">
+          <Key>
+            <PropertyRef Name="VLAB_ID" />
+          </Key>
+          <Property Name="VLAB_ID" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="VITEM_CODE" Type="varchar2" MaxLength="30" />
+          <Property Name="ITEMNAMEMX" Type="nvarchar2" MaxLength="100" />
+          <Property Name="VITEM_NAME" Type="nvarchar2" MaxLength="60" />
+          <Property Name="NUNITS" Type="nvarchar2" MaxLength="20" />
+          <Property Name="NACCOUNT" Type="number" Precision="3" Scale="0" />
+          <Property Name="VPATIENT_ID" Type="varchar2" MaxLength="10" />
+          <Property Name="DAPPLY_DATE" Type="date" />
+          <Property Name="VAPPLY_DEPT" Type="varchar2" MaxLength="20" />
+          <Property Name="VAPPLY_DOCTOR" Type="varchar2" MaxLength="20" />
+          <Property Name="NLAB_RESULT" Type="number" Precision="1" Scale="0" />
+          <Property Name="NFLAG" Type="number" Precision="1" Scale="0" />
+          <Property Name="VCLINICNO" Type="varchar2" MaxLength="20" />
+          <Property Name="DEXECUTE" Type="date" />
+          <Property Name="SQDEPART" Type="nvarchar2" MaxLength="40" />
+          <Property Name="SQSTAFFNAME" Type="nvarchar2" MaxLength="60" />
+          <Property Name="PATIENTNAME" Type="nvarchar2" MaxLength="20" />
+          <Property Name="NSEX" Type="varchar2" MaxLength="4" />
+          <Property Name="NAGE" Type="varchar2" MaxLength="42" />
+          <Property Name="EXEDOCTORNAME" Type="nvarchar2" MaxLength="60" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_MZ_CHARGEDETAIL”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_MZ_CHARGEDETAIL">
+          <Key>
+            <PropertyRef Name="VPRESC_ID" />
+            <PropertyRef Name="LSH" />
+          </Key>
+          <Property Name="VCLINICNO" Type="varchar2" MaxLength="10" />
+          <Property Name="VDEPARTCODE" Type="varchar2" MaxLength="20" />
+          <Property Name="VDEPARTNAME" Type="nvarchar2" MaxLength="40" />
+          <Property Name="VPRESC_ID" Type="varchar2" MaxLength="60" Nullable="false" />
+          <Property Name="LSH" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="VDOCTOR_ID" Type="varchar2" MaxLength="20" />
+          <Property Name="VDOCTOR_NAME" Type="nvarchar2" MaxLength="60" />
+          <Property Name="DPRESC_DATE" Type="date" />
+          <Property Name="VITEM_CODE" Type="varchar2" MaxLength="30" />
+          <Property Name="VITEM_NAME" Type="nvarchar2" MaxLength="50" />
+          <Property Name="NPRICE" Type="number" Precision="10" Scale="4" />
+          <Property Name="NSL" Type="number" Precision="10" Scale="2" />
+          <Property Name="VUNITS" Type="varchar2" MaxLength="10" />
+          <Property Name="NCOSTS" Type="number" Precision="10" Scale="2" />
+          <Property Name="NSTATUS" Type="number" Precision="1" Scale="0" />
+          <Property Name="VTYPEID" Type="number" Precision="10" Scale="0" />
+          <Property Name="VTYPENAME" Type="nvarchar2" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VPATIENTID”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VCLINICNO”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VPRESC_ID”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VITEM_TYPE”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VITEM_TYPE_NAME”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VITEM_CODE”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VITEM_NAME”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“NPRICE”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“NACCOUNT”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“NCOSTS”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VITEM_SPEC”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VUNITS”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VDOSAGE_UNITS”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“NDOSAGE”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“NTOTALCHARGES”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VADMINISTRATION”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VFREQUENCY”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“NDAYS”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“NSALESCALE”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VITEM_PRODUCT”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VREMARKS”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VDRUG_STORAGE”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“DPRESC_DATE”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“NPRESC”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“NCOUNT”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VISSELF”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VDEPT_CODE”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCDETAIL”中的列“VDEPT_NAME”。
+警告 6013: 表/视图“YWAPP.V_MZ_PRESCDETAIL”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="V_MZ_PRESCDETAIL" />-->
+        <!--生成过程中发现错误:
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“VPATIENTID”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“VPRESC_ID”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“DPRESC_DATE”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“VPRESC_TYPE”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“VPRESC_TYPE_NAME”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“VPATIENT_ID”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“VDIAGNOSE”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“NCOUNT”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“VUSERAGE”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“VDOCTOR_ID”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“VDOCTOR_NAME”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“NSTATUS”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“VCHARGE_USER”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“DCHARGE_DATE”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“VMEMO”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“VDEPT_CODE”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“VDEPARTNAME”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“VCLINICNO”。
+警告 6005: 目标实体框架版本目前不支持数据类型“undefined”；已排除表“YWAPP.V_MZ_PRESCMASTER”中的列“VTIMESTAMP”。
+警告 6013: 表/视图“YWAPP.V_MZ_PRESCMASTER”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="V_MZ_PRESCMASTER" />-->
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“YWAPP.V_MZSF_PRESC”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="V_MZSF_PRESC">
+          <Property Name="VCLINICNO" Type="varchar2" MaxLength="20" />
+          <Property Name="VNAME" Type="nvarchar2" MaxLength="20" />
+          <Property Name="VIDNO" Type="varchar2" MaxLength="18" />
+          <Property Name="VDEPARTNAME" Type="nvarchar2" MaxLength="40" />
+          <Property Name="VDOCTOR_NAME" Type="nvarchar2" MaxLength="60" />
+          <Property Name="VPRESC_ID" Type="varchar2" MaxLength="12" />
+          <Property Name="VITEM_CODE" Type="varchar2" MaxLength="30" />
+          <Property Name="VITEM_NAME" Type="nvarchar2" MaxLength="100" />
+          <Property Name="VUNITS" Type="nvarchar2" MaxLength="30" />
+          <Property Name="NPRICE" Type="number" Precision="38" Scale="0" />
+          <Property Name="NACCOUNT" Type="number" Precision="38" Scale="0" />
+          <Property Name="NCOSTS" Type="number" Precision="38" Scale="0" />
+          <Property Name="DPRESC_DATE" Type="date" />
+          <Property Name="VDEPT_CODENAME" Type="nvarchar2" MaxLength="40" />
+          <Property Name="VITEM_TYPE" Type="number" Precision="38" Scale="0" />
+          <Property Name="VITEM_TYPE_NAME" Type="nvarchar2" MaxLength="50" />
+        </EntityType>-->
+        <!--生成过程中发现错误:
+警告 6006: 具有值“0”的方面“MaxLength”超出了方面说明所指定的范围 1-2000。已排除表“YWAPP.V_PATIENT_BASIC_INFO”中的列“VNATIONNAME”。
+警告 6006: 具有值“0”的方面“MaxLength”超出了方面说明所指定的范围 1-2000。已排除表“YWAPP.V_PATIENT_BASIC_INFO”中的列“VCOUNTRY”。
+警告 6006: 具有值“0”的方面“MaxLength”超出了方面说明所指定的范围 1-2000。已排除表“YWAPP.V_PATIENT_BASIC_INFO”中的列“VJIGUAN”。
+警告 6002: 表/视图“YWAPP.V_PATIENT_BASIC_INFO”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_PATIENT_BASIC_INFO">
+          <Key>
+            <PropertyRef Name="VPATIENTID" />
+            <PropertyRef Name="VNAME" />
+          </Key>
+          <Property Name="VPATIENTID" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="VNAME" Type="nvarchar2" MaxLength="20" Nullable="false" />
+          <Property Name="VSEX" Type="varchar2" MaxLength="4" />
+          <Property Name="VBIRTHDATE" Type="varchar2" MaxLength="10" />
+          <Property Name="VAGE" Type="varchar2" MaxLength="42" />
+          <Property Name="VIDNO" Type="varchar2" MaxLength="18" />
+          <Property Name="VBIRTHPLACE" Type="varchar2" MaxLength="6" />
+          <Property Name="VPRESENTADDRESS" Type="varchar2" MaxLength="100" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_PATIENT_ZY_INFO”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_PATIENT_ZY_INFO">
+          <Key>
+            <PropertyRef Name="VCLINICNO" />
+            <PropertyRef Name="VNAME" />
+            <PropertyRef Name="DVISITDATE" />
+          </Key>
+          <Property Name="VPATIENTID" Type="varchar2" MaxLength="20" />
+          <Property Name="VCLINICNO" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="VNAME" Type="nvarchar2" MaxLength="20" Nullable="false" />
+          <Property Name="DVISITDATE" Type="date" Nullable="false" />
+          <Property Name="VSEX" Type="varchar2" MaxLength="4" />
+          <Property Name="VBIRTHDATE" Type="varchar2" MaxLength="10" />
+          <Property Name="VAGE" Type="varchar2" MaxLength="42" />
+          <Property Name="VIDNO" Type="varchar2" MaxLength="18" />
+          <Property Name="VDEPARTNAME" Type="nvarchar2" MaxLength="40" />
+          <Property Name="NAPPTIME" Type="number" Precision="2" Scale="0" />
+          <Property Name="NSTATUS" Type="number" Precision="1" Scale="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_REGPLAN”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_REGPLAN">
+          <Key>
+            <PropertyRef Name="VPLANID" />
+            <PropertyRef Name="DCLINICDATE" />
+            <PropertyRef Name="VDEPTID" />
+          </Key>
+          <Property Name="VPLANID" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="VDOCTORID" Type="varchar2" MaxLength="10" />
+          <Property Name="NTIMEDESC" Type="number" Precision="1" Scale="0" />
+          <Property Name="SJD" Type="varchar2" MaxLength="4" />
+          <Property Name="NREGLIMITS" Type="number" Precision="10" Scale="0" />
+          <Property Name="NAPPLIMITS" Type="number" Precision="10" Scale="0" />
+          <Property Name="NREGNUMBER" Type="number" Precision="10" Scale="0" />
+          <Property Name="NAPPNUMBER" Type="number" Precision="10" Scale="0" />
+          <Property Name="DCLINICDATE" Type="date" Nullable="false" />
+          <Property Name="VDEPTID" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="NHOSID" Type="number" Precision="10" Scale="0" />
+          <Property Name="GHF" Type="varchar2" MaxLength="10" />
+          <Property Name="ZLF" Type="varchar2" MaxLength="10" />
+          <Property Name="HAOBIE" Type="varchar2" MaxLength="20" />
+          <Property Name="VDEPARTNAME" Type="nvarchar2" MaxLength="40" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_STAFF”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_STAFF">
+          <Key>
+            <PropertyRef Name="VSTAFFCODE" />
+            <PropertyRef Name="VSTAFFNAME" />
+            <PropertyRef Name="PINYINMA" />
+            <PropertyRef Name="VLOGINUSERNAME" />
+            <PropertyRef Name="VLOGINPASSWORD" />
+            <PropertyRef Name="NSTAFFSTATUS" />
+            <PropertyRef Name="VDEPARTCODE" />
+            <PropertyRef Name="NJOBID" />
+            <PropertyRef Name="NPROFESSIONID" />
+            <PropertyRef Name="NOPHZID" />
+          </Key>
+          <Property Name="VSTAFFCODE" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="VSTAFFNAME" Type="nvarchar2" MaxLength="60" Nullable="false" />
+          <Property Name="PINYINMA" Type="varchar2" MaxLength="120" Nullable="false" />
+          <Property Name="VLOGINUSERNAME" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="VLOGINPASSWORD" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="NSTAFFSTATUS" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NROLEID" Type="number" Precision="10" Scale="0" />
+          <Property Name="VROLENAME" Type="varchar2" MaxLength="50" />
+          <Property Name="VDEPARTCODE" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="VDEPARTNAME" Type="nvarchar2" MaxLength="40" />
+          <Property Name="NJOBID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NPROFESSIONID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="VPROFESSIONNAME" Type="nvarchar2" MaxLength="20" />
+          <Property Name="NOPHZID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NSEX" Type="number" Precision="1" Scale="0" />
+          <Property Name="NSEXNAME" Type="varchar2" MaxLength="2" />
+          <Property Name="NBIRTHDAY" Type="date" />
+          <Property Name="NHOSID" Type="number" Precision="10" Scale="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_TJ_PACKAGE”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_TJ_PACKAGE">
+          <Key>
+            <PropertyRef Name="NPACKAGEID" />
+            <PropertyRef Name="VPEGROUPNAME" />
+            <PropertyRef Name="NVPRICE" />
+            <PropertyRef Name="NDISCOUNTS" />
+            <PropertyRef Name="NMONEY" />
+          </Key>
+          <Property Name="NPACKAGEID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="VPEGROUPNAME" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="PINYINMA" Type="varchar2" MaxLength="20" />
+          <Property Name="NVPRICE" Type="number" Precision="12" Scale="4" Nullable="false" />
+          <Property Name="NDISCOUNTS" Type="number" Precision="12" Scale="4" Nullable="false" />
+          <Property Name="NMONEY" Type="number" Precision="12" Scale="4" Nullable="false" />
+          <Property Name="VDESCRIPTION" Type="varchar2" MaxLength="255" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_TJ_PEINFO”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_TJ_PEINFO">
+          <Key>
+            <PropertyRef Name="VPEID" />
+            <PropertyRef Name="DPEDATE" />
+            <PropertyRef Name="DLASTPEDATE" />
+          </Key>
+          <Property Name="VPEID" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="VNAME" Type="nvarchar2" MaxLength="20" />
+          <Property Name="NSEX" Type="number" Precision="1" Scale="0" />
+          <Property Name="NSEXNAME" Type="varchar2" MaxLength="4" />
+          <Property Name="VIDNO" Type="varchar2" MaxLength="18" />
+          <Property Name="DPEDATE" Type="date" Nullable="false" />
+          <Property Name="DLASTPEDATE" Type="date" Nullable="false" />
+          <Property Name="VPEGROUPNAME" Type="varchar2" MaxLength="40" />
+          <Property Name="NSTATUS" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_TJ_PETIME”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_TJ_PETIME">
+          <Key>
+            <PropertyRef Name="VPEID" />
+            <PropertyRef Name="NITEMID" />
+            <PropertyRef Name="NMONEY" />
+          </Key>
+          <Property Name="VPEID" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="NITEMID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="VITEMNAME" Type="varchar2" MaxLength="200" />
+          <Property Name="NPACKAGEID" Type="number" Precision="10" Scale="0" />
+          <Property Name="NMONEY" Type="number" Precision="12" Scale="4" Nullable="false" />
+          <Property Name="VITEMADDRESS" Type="varchar2" MaxLength="50" />
+          <Property Name="HISNITEMTYPE" Type="number" Precision="1" Scale="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_ZYGL_PREPAY”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_ZYGL_PREPAY">
+          <Key>
+            <PropertyRef Name="VCLINICNO" />
+            <PropertyRef Name="DOPERATORDATE" />
+            <PropertyRef Name="NMONEY" />
+          </Key>
+          <Property Name="VCLINICNO" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="DOPERATORDATE" Type="date" Nullable="false" />
+          <Property Name="VDEPT_CODE" Type="varchar2" MaxLength="20" />
+          <Property Name="NMONEY" Type="number" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_ZYGL_REGHIS”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_ZYGL_REGHIS">
+          <Key>
+            <PropertyRef Name="VCLINICNO" />
+            <PropertyRef Name="DVISITDATE" />
+            <PropertyRef Name="VNAME" />
+            <PropertyRef Name="NSEX" />
+            <PropertyRef Name="DBIRTHDATE" />
+            <PropertyRef Name="VVISITDEPT" />
+            <PropertyRef Name="NALLOYMONEY" />
+            <PropertyRef Name="NBALANCE" />
+          </Key>
+          <Property Name="VCLINICNO" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="DVISITDATE" Type="date" Nullable="false" />
+          <Property Name="VPATIENTID" Type="varchar2" MaxLength="20" />
+          <Property Name="VNAME" Type="nvarchar2" MaxLength="20" Nullable="false" />
+          <Property Name="PINYINMA" Type="varchar2" MaxLength="60" />
+          <Property Name="NSEX" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="DBIRTHDATE" Type="date" Nullable="false" />
+          <Property Name="VVISITDEPT" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="NSTATUS" Type="number" Precision="1" Scale="0" />
+          <Property Name="NALLOYMONEY" Type="number" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="NBALANCE" Type="number" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="VIDNO" Type="varchar2" MaxLength="18" />
+        </EntityType>
+        <EntityContainer Name="Model2StoreContainer">
+          <EntitySet Name="V_COST_INFO" EntityType="Self.V_COST_INFO" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_COST_INFO"."NFEE_ID" AS "NFEE_ID", 
+"V_COST_INFO"."VCLINICNO" AS "VCLINICNO", 
+"V_COST_INFO"."VITEM_NAME" AS "VITEM_NAME", 
+"V_COST_INFO"."DFEE_DATE" AS "DFEE_DATE", 
+"V_COST_INFO"."VITEM_UNITS" AS "VITEM_UNITS", 
+"V_COST_INFO"."NITEM_PRICE" AS "NITEM_PRICE", 
+"V_COST_INFO"."NITEM_SL" AS "NITEM_SL", 
+"V_COST_INFO"."NITEM_MONEY" AS "NITEM_MONEY", 
+"V_COST_INFO"."VDEPARTNAME" AS "VDEPARTNAME", 
+"V_COST_INFO"."VFEE_OPERATENAME" AS "VFEE_OPERATENAME", 
+"V_COST_INFO"."NBACK_SL" AS "NBACK_SL"
+FROM "YWAPP"."V_COST_INFO" "V_COST_INFO"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_DICDEPART" EntityType="Self.V_DICDEPART" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_DICDEPART"."VDEPARTCODE" AS "VDEPARTCODE", 
+"V_DICDEPART"."VDEPARTNAME" AS "VDEPARTNAME", 
+"V_DICDEPART"."NOPHZID" AS "NOPHZID", 
+"V_DICDEPART"."PINYINMA" AS "PINYINMA", 
+"V_DICDEPART"."NISDISABLED" AS "NISDISABLED", 
+"V_DICDEPART"."NHOSID" AS "NHOSID"
+FROM "YWAPP"."V_DICDEPART" "V_DICDEPART"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_EXAMITEMS_INFO" EntityType="Self.V_EXAMITEMS_INFO" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_EXAMITEMS_INFO"."VEXAM_ID" AS "VEXAM_ID", 
+"V_EXAMITEMS_INFO"."VPATIENT_ID" AS "VPATIENT_ID", 
+"V_EXAMITEMS_INFO"."VEXAM_POSITION" AS "VEXAM_POSITION", 
+"V_EXAMITEMS_INFO"."DAPPLY_DATE" AS "DAPPLY_DATE", 
+"V_EXAMITEMS_INFO"."VAPPLY_DEPT" AS "VAPPLY_DEPT", 
+"V_EXAMITEMS_INFO"."VAPPLY_DOCTOR" AS "VAPPLY_DOCTOR", 
+"V_EXAMITEMS_INFO"."NEXAM_RESULT" AS "NEXAM_RESULT", 
+"V_EXAMITEMS_INFO"."MZORZY" AS "MZORZY", 
+"V_EXAMITEMS_INFO"."VCLINICNO" AS "VCLINICNO", 
+"V_EXAMITEMS_INFO"."DEXECUTE" AS "DEXECUTE", 
+"V_EXAMITEMS_INFO"."EXEDOCTORNAME" AS "EXEDOCTORNAME", 
+"V_EXAMITEMS_INFO"."VITEMNAME" AS "VITEMNAME", 
+"V_EXAMITEMS_INFO"."VUNITS" AS "VUNITS", 
+"V_EXAMITEMS_INFO"."NACCOUNT" AS "NACCOUNT", 
+"V_EXAMITEMS_INFO"."VNAME" AS "VNAME", 
+"V_EXAMITEMS_INFO"."NSEX" AS "NSEX", 
+"V_EXAMITEMS_INFO"."NAGE" AS "NAGE", 
+"V_EXAMITEMS_INFO"."SQDEPARTNAME" AS "SQDEPARTNAME", 
+"V_EXAMITEMS_INFO"."SQDOCTORNAME" AS "SQDOCTORNAME", 
+"V_EXAMITEMS_INFO"."VRESULT_DESP" AS "VRESULT_DESP", 
+"V_EXAMITEMS_INFO"."VDIAGNOSE" AS "VDIAGNOSE"
+FROM "YWAPP"."V_EXAMITEMS_INFO" "V_EXAMITEMS_INFO"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_GHSF_CARD" EntityType="Self.V_GHSF_CARD" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_GHSF_CARD"."VCARDNO" AS "VCARDNO", 
+"V_GHSF_CARD"."VCARDID" AS "VCARDID", 
+"V_GHSF_CARD"."VPATIENTID" AS "VPATIENTID", 
+"V_GHSF_CARD"."NCARDSTATE" AS "NCARDSTATE", 
+"V_GHSF_CARD"."VNAME" AS "VNAME", 
+"V_GHSF_CARD"."VIDNO" AS "VIDNO"
+FROM "YWAPP"."V_GHSF_CARD" "V_GHSF_CARD"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_GHSF_REGHIS" EntityType="Self.V_GHSF_REGHIS" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_GHSF_REGHIS"."VCLINICNO" AS "VCLINICNO", 
+"V_GHSF_REGHIS"."DVISITDATE" AS "DVISITDATE", 
+"V_GHSF_REGHIS"."VAPPTIME" AS "VAPPTIME", 
+"V_GHSF_REGHIS"."VPATIENTID" AS "VPATIENTID", 
+"V_GHSF_REGHIS"."VNAME" AS "VNAME", 
+"V_GHSF_REGHIS"."PINYINMA" AS "PINYINMA", 
+"V_GHSF_REGHIS"."NSEX" AS "NSEX", 
+"V_GHSF_REGHIS"."DBIRTHDATE" AS "DBIRTHDATE", 
+"V_GHSF_REGHIS"."NREGSTATUS" AS "NREGSTATUS", 
+"V_GHSF_REGHIS"."VVISITDEPT" AS "VVISITDEPT", 
+"V_GHSF_REGHIS"."VDOCTOR" AS "VDOCTOR", 
+"V_GHSF_REGHIS"."VIDNO" AS "VIDNO"
+FROM "YWAPP"."V_GHSF_REGHIS" "V_GHSF_REGHIS"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_LABITEMS_INFO" EntityType="Self.V_LABITEMS_INFO" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_LABITEMS_INFO"."VLAB_ID" AS "VLAB_ID", 
+"V_LABITEMS_INFO"."VITEM_CODE" AS "VITEM_CODE", 
+"V_LABITEMS_INFO"."ITEMNAMEMX" AS "ITEMNAMEMX", 
+"V_LABITEMS_INFO"."VITEM_NAME" AS "VITEM_NAME", 
+"V_LABITEMS_INFO"."NUNITS" AS "NUNITS", 
+"V_LABITEMS_INFO"."NACCOUNT" AS "NACCOUNT", 
+"V_LABITEMS_INFO"."VPATIENT_ID" AS "VPATIENT_ID", 
+"V_LABITEMS_INFO"."DAPPLY_DATE" AS "DAPPLY_DATE", 
+"V_LABITEMS_INFO"."VAPPLY_DEPT" AS "VAPPLY_DEPT", 
+"V_LABITEMS_INFO"."VAPPLY_DOCTOR" AS "VAPPLY_DOCTOR", 
+"V_LABITEMS_INFO"."NLAB_RESULT" AS "NLAB_RESULT", 
+"V_LABITEMS_INFO"."NFLAG" AS "NFLAG", 
+"V_LABITEMS_INFO"."VCLINICNO" AS "VCLINICNO", 
+"V_LABITEMS_INFO"."DEXECUTE" AS "DEXECUTE", 
+"V_LABITEMS_INFO"."SQDEPART" AS "SQDEPART", 
+"V_LABITEMS_INFO"."SQSTAFFNAME" AS "SQSTAFFNAME", 
+"V_LABITEMS_INFO"."PATIENTNAME" AS "PATIENTNAME", 
+"V_LABITEMS_INFO"."NSEX" AS "NSEX", 
+"V_LABITEMS_INFO"."NAGE" AS "NAGE", 
+"V_LABITEMS_INFO"."EXEDOCTORNAME" AS "EXEDOCTORNAME"
+FROM "YWAPP"."V_LABITEMS_INFO" "V_LABITEMS_INFO"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_MZ_CHARGEDETAIL" EntityType="Self.V_MZ_CHARGEDETAIL" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_MZ_CHARGEDETAIL"."VCLINICNO" AS "VCLINICNO", 
+"V_MZ_CHARGEDETAIL"."VDEPARTCODE" AS "VDEPARTCODE", 
+"V_MZ_CHARGEDETAIL"."VDEPARTNAME" AS "VDEPARTNAME", 
+"V_MZ_CHARGEDETAIL"."VPRESC_ID" AS "VPRESC_ID", 
+"V_MZ_CHARGEDETAIL"."LSH" AS "LSH", 
+"V_MZ_CHARGEDETAIL"."VDOCTOR_ID" AS "VDOCTOR_ID", 
+"V_MZ_CHARGEDETAIL"."VDOCTOR_NAME" AS "VDOCTOR_NAME", 
+"V_MZ_CHARGEDETAIL"."DPRESC_DATE" AS "DPRESC_DATE", 
+"V_MZ_CHARGEDETAIL"."VITEM_CODE" AS "VITEM_CODE", 
+"V_MZ_CHARGEDETAIL"."VITEM_NAME" AS "VITEM_NAME", 
+"V_MZ_CHARGEDETAIL"."NPRICE" AS "NPRICE", 
+"V_MZ_CHARGEDETAIL"."NSL" AS "NSL", 
+"V_MZ_CHARGEDETAIL"."VUNITS" AS "VUNITS", 
+"V_MZ_CHARGEDETAIL"."NCOSTS" AS "NCOSTS", 
+"V_MZ_CHARGEDETAIL"."NSTATUS" AS "NSTATUS", 
+"V_MZ_CHARGEDETAIL"."VTYPEID" AS "VTYPEID", 
+"V_MZ_CHARGEDETAIL"."VTYPENAME" AS "VTYPENAME"
+FROM "YWAPP"."V_MZ_CHARGEDETAIL" "V_MZ_CHARGEDETAIL"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_PATIENT_BASIC_INFO" EntityType="Self.V_PATIENT_BASIC_INFO" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_PATIENT_BASIC_INFO"."VPATIENTID" AS "VPATIENTID", 
+"V_PATIENT_BASIC_INFO"."VNAME" AS "VNAME", 
+"V_PATIENT_BASIC_INFO"."VSEX" AS "VSEX", 
+"V_PATIENT_BASIC_INFO"."VBIRTHDATE" AS "VBIRTHDATE", 
+"V_PATIENT_BASIC_INFO"."VAGE" AS "VAGE", 
+"V_PATIENT_BASIC_INFO"."VIDNO" AS "VIDNO", 
+"V_PATIENT_BASIC_INFO"."VBIRTHPLACE" AS "VBIRTHPLACE", 
+"V_PATIENT_BASIC_INFO"."VPRESENTADDRESS" AS "VPRESENTADDRESS"
+FROM "YWAPP"."V_PATIENT_BASIC_INFO" "V_PATIENT_BASIC_INFO"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_PATIENT_ZY_INFO" EntityType="Self.V_PATIENT_ZY_INFO" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_PATIENT_ZY_INFO"."VPATIENTID" AS "VPATIENTID", 
+"V_PATIENT_ZY_INFO"."VCLINICNO" AS "VCLINICNO", 
+"V_PATIENT_ZY_INFO"."VNAME" AS "VNAME", 
+"V_PATIENT_ZY_INFO"."DVISITDATE" AS "DVISITDATE", 
+"V_PATIENT_ZY_INFO"."VSEX" AS "VSEX", 
+"V_PATIENT_ZY_INFO"."VBIRTHDATE" AS "VBIRTHDATE", 
+"V_PATIENT_ZY_INFO"."VAGE" AS "VAGE", 
+"V_PATIENT_ZY_INFO"."VIDNO" AS "VIDNO", 
+"V_PATIENT_ZY_INFO"."VDEPARTNAME" AS "VDEPARTNAME", 
+"V_PATIENT_ZY_INFO"."NAPPTIME" AS "NAPPTIME", 
+"V_PATIENT_ZY_INFO"."NSTATUS" AS "NSTATUS"
+FROM "YWAPP"."V_PATIENT_ZY_INFO" "V_PATIENT_ZY_INFO"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_REGPLAN" EntityType="Self.V_REGPLAN" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_REGPLAN"."VPLANID" AS "VPLANID", 
+"V_REGPLAN"."VDOCTORID" AS "VDOCTORID", 
+"V_REGPLAN"."NTIMEDESC" AS "NTIMEDESC", 
+"V_REGPLAN"."SJD" AS "SJD", 
+"V_REGPLAN"."NREGLIMITS" AS "NREGLIMITS", 
+"V_REGPLAN"."NAPPLIMITS" AS "NAPPLIMITS", 
+"V_REGPLAN"."NREGNUMBER" AS "NREGNUMBER", 
+"V_REGPLAN"."NAPPNUMBER" AS "NAPPNUMBER", 
+"V_REGPLAN"."DCLINICDATE" AS "DCLINICDATE", 
+"V_REGPLAN"."VDEPTID" AS "VDEPTID", 
+"V_REGPLAN"."NHOSID" AS "NHOSID", 
+"V_REGPLAN"."GHF" AS "GHF", 
+"V_REGPLAN"."ZLF" AS "ZLF", 
+"V_REGPLAN"."HAOBIE" AS "HAOBIE", 
+"V_REGPLAN"."VDEPARTNAME" AS "VDEPARTNAME"
+FROM "YWAPP"."V_REGPLAN" "V_REGPLAN"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_STAFF" EntityType="Self.V_STAFF" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_STAFF"."VSTAFFCODE" AS "VSTAFFCODE", 
+"V_STAFF"."VSTAFFNAME" AS "VSTAFFNAME", 
+"V_STAFF"."PINYINMA" AS "PINYINMA", 
+"V_STAFF"."VLOGINUSERNAME" AS "VLOGINUSERNAME", 
+"V_STAFF"."VLOGINPASSWORD" AS "VLOGINPASSWORD", 
+"V_STAFF"."NSTAFFSTATUS" AS "NSTAFFSTATUS", 
+"V_STAFF"."NROLEID" AS "NROLEID", 
+"V_STAFF"."VROLENAME" AS "VROLENAME", 
+"V_STAFF"."VDEPARTCODE" AS "VDEPARTCODE", 
+"V_STAFF"."VDEPARTNAME" AS "VDEPARTNAME", 
+"V_STAFF"."NJOBID" AS "NJOBID", 
+"V_STAFF"."NPROFESSIONID" AS "NPROFESSIONID", 
+"V_STAFF"."VPROFESSIONNAME" AS "VPROFESSIONNAME", 
+"V_STAFF"."NOPHZID" AS "NOPHZID", 
+"V_STAFF"."NSEX" AS "NSEX", 
+"V_STAFF"."NSEXNAME" AS "NSEXNAME", 
+"V_STAFF"."NBIRTHDAY" AS "NBIRTHDAY", 
+"V_STAFF"."NHOSID" AS "NHOSID"
+FROM "YWAPP"."V_STAFF" "V_STAFF"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_TJ_PACKAGE" EntityType="Self.V_TJ_PACKAGE" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_TJ_PACKAGE"."NPACKAGEID" AS "NPACKAGEID", 
+"V_TJ_PACKAGE"."VPEGROUPNAME" AS "VPEGROUPNAME", 
+"V_TJ_PACKAGE"."PINYINMA" AS "PINYINMA", 
+"V_TJ_PACKAGE"."NVPRICE" AS "NVPRICE", 
+"V_TJ_PACKAGE"."NDISCOUNTS" AS "NDISCOUNTS", 
+"V_TJ_PACKAGE"."NMONEY" AS "NMONEY", 
+"V_TJ_PACKAGE"."VDESCRIPTION" AS "VDESCRIPTION"
+FROM "YWAPP"."V_TJ_PACKAGE" "V_TJ_PACKAGE"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_TJ_PEINFO" EntityType="Self.V_TJ_PEINFO" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_TJ_PEINFO"."VPEID" AS "VPEID", 
+"V_TJ_PEINFO"."VNAME" AS "VNAME", 
+"V_TJ_PEINFO"."NSEX" AS "NSEX", 
+"V_TJ_PEINFO"."NSEXNAME" AS "NSEXNAME", 
+"V_TJ_PEINFO"."VIDNO" AS "VIDNO", 
+"V_TJ_PEINFO"."DPEDATE" AS "DPEDATE", 
+"V_TJ_PEINFO"."DLASTPEDATE" AS "DLASTPEDATE", 
+"V_TJ_PEINFO"."VPEGROUPNAME" AS "VPEGROUPNAME", 
+"V_TJ_PEINFO"."NSTATUS" AS "NSTATUS"
+FROM "YWAPP"."V_TJ_PEINFO" "V_TJ_PEINFO"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_TJ_PETIME" EntityType="Self.V_TJ_PETIME" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_TJ_PETIME"."VPEID" AS "VPEID", 
+"V_TJ_PETIME"."NITEMID" AS "NITEMID", 
+"V_TJ_PETIME"."VITEMNAME" AS "VITEMNAME", 
+"V_TJ_PETIME"."NPACKAGEID" AS "NPACKAGEID", 
+"V_TJ_PETIME"."NMONEY" AS "NMONEY", 
+"V_TJ_PETIME"."VITEMADDRESS" AS "VITEMADDRESS", 
+"V_TJ_PETIME"."HISNITEMTYPE" AS "HISNITEMTYPE"
+FROM "YWAPP"."V_TJ_PETIME" "V_TJ_PETIME"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_ZYGL_PREPAY" EntityType="Self.V_ZYGL_PREPAY" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_ZYGL_PREPAY"."VCLINICNO" AS "VCLINICNO", 
+"V_ZYGL_PREPAY"."DOPERATORDATE" AS "DOPERATORDATE", 
+"V_ZYGL_PREPAY"."VDEPT_CODE" AS "VDEPT_CODE", 
+"V_ZYGL_PREPAY"."NMONEY" AS "NMONEY"
+FROM "YWAPP"."V_ZYGL_PREPAY" "V_ZYGL_PREPAY"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_ZYGL_REGHIS" EntityType="Self.V_ZYGL_REGHIS" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_ZYGL_REGHIS"."VCLINICNO" AS "VCLINICNO", 
+"V_ZYGL_REGHIS"."DVISITDATE" AS "DVISITDATE", 
+"V_ZYGL_REGHIS"."VPATIENTID" AS "VPATIENTID", 
+"V_ZYGL_REGHIS"."VNAME" AS "VNAME", 
+"V_ZYGL_REGHIS"."PINYINMA" AS "PINYINMA", 
+"V_ZYGL_REGHIS"."NSEX" AS "NSEX", 
+"V_ZYGL_REGHIS"."DBIRTHDATE" AS "DBIRTHDATE", 
+"V_ZYGL_REGHIS"."VVISITDEPT" AS "VVISITDEPT", 
+"V_ZYGL_REGHIS"."NSTATUS" AS "NSTATUS", 
+"V_ZYGL_REGHIS"."NALLOYMONEY" AS "NALLOYMONEY", 
+"V_ZYGL_REGHIS"."NBALANCE" AS "NBALANCE", 
+"V_ZYGL_REGHIS"."VIDNO" AS "VIDNO"
+FROM "YWAPP"."V_ZYGL_REGHIS" "V_ZYGL_REGHIS"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="V_COST_INFO">
+          <Key>
+            <PropertyRef Name="NFEE_ID" />
+            <PropertyRef Name="VCLINICNO" />
+            <PropertyRef Name="DFEE_DATE" />
+          </Key>
+          <Property Name="NFEE_ID" Type="Int64" Nullable="false" />
+          <Property Name="VCLINICNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VITEM_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DFEE_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="VITEM_UNITS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NITEM_PRICE" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="NITEM_SL" Type="Decimal" Precision="12" Scale="4" />
+          <Property Name="NITEM_MONEY" Type="Decimal" Precision="14" Scale="2" />
+          <Property Name="VDEPARTNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="VFEE_OPERATENAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NBACK_SL" Type="Decimal" Precision="12" Scale="4" />
+        </EntityType>
+        <EntityType Name="V_DICDEPART">
+          <Key>
+            <PropertyRef Name="VDEPARTCODE" />
+            <PropertyRef Name="VDEPARTNAME" />
+            <PropertyRef Name="NOPHZID" />
+            <PropertyRef Name="NISDISABLED" />
+          </Key>
+          <Property Name="VDEPARTCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VDEPARTNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NOPHZID" Type="Int32" Nullable="false" />
+          <Property Name="PINYINMA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NISDISABLED" Type="Byte" Nullable="false" />
+          <Property Name="NHOSID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="V_EXAMITEMS_INFO">
+          <Key>
+            <PropertyRef Name="VEXAM_ID" />
+            <PropertyRef Name="VPATIENT_ID" />
+            <PropertyRef Name="DAPPLY_DATE" />
+            <PropertyRef Name="VAPPLY_DEPT" />
+            <PropertyRef Name="VAPPLY_DOCTOR" />
+            <PropertyRef Name="NEXAM_RESULT" />
+            <PropertyRef Name="MZORZY" />
+          </Key>
+          <Property Name="VEXAM_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VPATIENT_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VEXAM_POSITION" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="DAPPLY_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="VAPPLY_DEPT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VAPPLY_DOCTOR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NEXAM_RESULT" Type="Boolean" Nullable="false" />
+          <Property Name="MZORZY" Type="Boolean" Nullable="false" />
+          <Property Name="VCLINICNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DEXECUTE" Type="DateTime" />
+          <Property Name="EXEDOCTORNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="VITEMNAME" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="VUNITS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NACCOUNT" Type="Byte" />
+          <Property Name="VNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NSEX" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="NAGE" Type="String" MaxLength="42" FixedLength="false" Unicode="false" />
+          <Property Name="SQDEPARTNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="SQDOCTORNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="VRESULT_DESP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VDIAGNOSE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="V_GHSF_CARD">
+          <Key>
+            <PropertyRef Name="VCARDNO" />
+            <PropertyRef Name="VCARDID" />
+            <PropertyRef Name="VPATIENTID" />
+            <PropertyRef Name="NCARDSTATE" />
+          </Key>
+          <Property Name="VCARDNO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VCARDID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VPATIENTID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NCARDSTATE" Type="Boolean" Nullable="false" />
+          <Property Name="VNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="VIDNO" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="V_GHSF_REGHIS">
+          <Key>
+            <PropertyRef Name="VCLINICNO" />
+            <PropertyRef Name="DVISITDATE" />
+            <PropertyRef Name="VNAME" />
+            <PropertyRef Name="PINYINMA" />
+            <PropertyRef Name="NSEX" />
+            <PropertyRef Name="DBIRTHDATE" />
+            <PropertyRef Name="VVISITDEPT" />
+          </Key>
+          <Property Name="VCLINICNO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DVISITDATE" Type="DateTime" Nullable="false" />
+          <Property Name="VAPPTIME" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="VPATIENTID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PINYINMA" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NSEX" Type="Boolean" Nullable="false" />
+          <Property Name="DBIRTHDATE" Type="DateTime" Nullable="false" />
+          <Property Name="NREGSTATUS" Type="Boolean" />
+          <Property Name="VVISITDEPT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VDOCTOR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VIDNO" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="V_LABITEMS_INFO">
+          <Key>
+            <PropertyRef Name="VLAB_ID" />
+          </Key>
+          <Property Name="VLAB_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VITEM_CODE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ITEMNAMEMX" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VITEM_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="NUNITS" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NACCOUNT" Type="Byte" />
+          <Property Name="VPATIENT_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DAPPLY_DATE" Type="DateTime" />
+          <Property Name="VAPPLY_DEPT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VAPPLY_DOCTOR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NLAB_RESULT" Type="Boolean" />
+          <Property Name="NFLAG" Type="Boolean" />
+          <Property Name="VCLINICNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DEXECUTE" Type="DateTime" />
+          <Property Name="SQDEPART" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="SQSTAFFNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="PATIENTNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NSEX" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="NAGE" Type="String" MaxLength="42" FixedLength="false" Unicode="false" />
+          <Property Name="EXEDOCTORNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_MZ_CHARGEDETAIL">
+          <Key>
+            <PropertyRef Name="VPRESC_ID" />
+            <PropertyRef Name="LSH" />
+          </Key>
+          <Property Name="VCLINICNO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VDEPARTCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VDEPARTNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="VPRESC_ID" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LSH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VDOCTOR_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VDOCTOR_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="DPRESC_DATE" Type="DateTime" />
+          <Property Name="VITEM_CODE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="VITEM_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NPRICE" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="NSL" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="VUNITS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NCOSTS" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="NSTATUS" Type="Boolean" />
+          <Property Name="VTYPEID" Type="Int32" />
+          <Property Name="VTYPENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_PATIENT_BASIC_INFO">
+          <Key>
+            <PropertyRef Name="VPATIENTID" />
+            <PropertyRef Name="VNAME" />
+          </Key>
+          <Property Name="VPATIENTID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VSEX" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="VBIRTHDATE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VAGE" Type="String" MaxLength="42" FixedLength="false" Unicode="false" />
+          <Property Name="VIDNO" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="VBIRTHPLACE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="VPRESENTADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="V_PATIENT_ZY_INFO">
+          <Key>
+            <PropertyRef Name="VCLINICNO" />
+            <PropertyRef Name="VNAME" />
+            <PropertyRef Name="DVISITDATE" />
+          </Key>
+          <Property Name="VPATIENTID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VCLINICNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DVISITDATE" Type="DateTime" Nullable="false" />
+          <Property Name="VSEX" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="VBIRTHDATE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VAGE" Type="String" MaxLength="42" FixedLength="false" Unicode="false" />
+          <Property Name="VIDNO" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="VDEPARTNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="NAPPTIME" Type="Byte" />
+          <Property Name="NSTATUS" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="V_REGPLAN">
+          <Key>
+            <PropertyRef Name="VPLANID" />
+            <PropertyRef Name="DCLINICDATE" />
+            <PropertyRef Name="VDEPTID" />
+          </Key>
+          <Property Name="VPLANID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VDOCTORID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NTIMEDESC" Type="Boolean" />
+          <Property Name="SJD" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="NREGLIMITS" Type="Int32" />
+          <Property Name="NAPPLIMITS" Type="Int32" />
+          <Property Name="NREGNUMBER" Type="Int32" />
+          <Property Name="NAPPNUMBER" Type="Int32" />
+          <Property Name="DCLINICDATE" Type="DateTime" Nullable="false" />
+          <Property Name="VDEPTID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NHOSID" Type="Int32" />
+          <Property Name="GHF" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ZLF" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HAOBIE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VDEPARTNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_STAFF">
+          <Key>
+            <PropertyRef Name="VSTAFFCODE" />
+            <PropertyRef Name="VSTAFFNAME" />
+            <PropertyRef Name="PINYINMA" />
+            <PropertyRef Name="VLOGINUSERNAME" />
+            <PropertyRef Name="VLOGINPASSWORD" />
+            <PropertyRef Name="NSTAFFSTATUS" />
+            <PropertyRef Name="VDEPARTCODE" />
+            <PropertyRef Name="NJOBID" />
+            <PropertyRef Name="NPROFESSIONID" />
+            <PropertyRef Name="NOPHZID" />
+          </Key>
+          <Property Name="VSTAFFCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VSTAFFNAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PINYINMA" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VLOGINUSERNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VLOGINPASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NSTAFFSTATUS" Type="Int32" Nullable="false" />
+          <Property Name="NROLEID" Type="Int32" />
+          <Property Name="VROLENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VDEPARTCODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VDEPARTNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="NJOBID" Type="Int32" Nullable="false" />
+          <Property Name="NPROFESSIONID" Type="Int32" Nullable="false" />
+          <Property Name="VPROFESSIONNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NOPHZID" Type="Int32" Nullable="false" />
+          <Property Name="NSEX" Type="Boolean" />
+          <Property Name="NSEXNAME" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="NBIRTHDAY" Type="DateTime" />
+          <Property Name="NHOSID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="V_TJ_PACKAGE">
+          <Key>
+            <PropertyRef Name="NPACKAGEID" />
+            <PropertyRef Name="VPEGROUPNAME" />
+            <PropertyRef Name="NVPRICE" />
+            <PropertyRef Name="NDISCOUNTS" />
+            <PropertyRef Name="NMONEY" />
+          </Key>
+          <Property Name="NPACKAGEID" Type="Int32" Nullable="false" />
+          <Property Name="VPEGROUPNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PINYINMA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NVPRICE" Type="Decimal" Precision="12" Scale="4" Nullable="false" />
+          <Property Name="NDISCOUNTS" Type="Decimal" Precision="12" Scale="4" Nullable="false" />
+          <Property Name="NMONEY" Type="Decimal" Precision="12" Scale="4" Nullable="false" />
+          <Property Name="VDESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="V_TJ_PEINFO">
+          <Key>
+            <PropertyRef Name="VPEID" />
+            <PropertyRef Name="DPEDATE" />
+            <PropertyRef Name="DLASTPEDATE" />
+          </Key>
+          <Property Name="VPEID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NSEX" Type="Boolean" />
+          <Property Name="NSEXNAME" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="VIDNO" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="DPEDATE" Type="DateTime" Nullable="false" />
+          <Property Name="DLASTPEDATE" Type="DateTime" Nullable="false" />
+          <Property Name="VPEGROUPNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="NSTATUS" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="V_TJ_PETIME">
+          <Key>
+            <PropertyRef Name="VPEID" />
+            <PropertyRef Name="NITEMID" />
+            <PropertyRef Name="NMONEY" />
+          </Key>
+          <Property Name="VPEID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NITEMID" Type="Int32" Nullable="false" />
+          <Property Name="VITEMNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NPACKAGEID" Type="Int32" />
+          <Property Name="NMONEY" Type="Decimal" Precision="12" Scale="4" Nullable="false" />
+          <Property Name="VITEMADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HISNITEMTYPE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="V_ZYGL_PREPAY">
+          <Key>
+            <PropertyRef Name="VCLINICNO" />
+            <PropertyRef Name="DOPERATORDATE" />
+            <PropertyRef Name="NMONEY" />
+          </Key>
+          <Property Name="VCLINICNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOPERATORDATE" Type="DateTime" Nullable="false" />
+          <Property Name="VDEPT_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NMONEY" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="V_ZYGL_REGHIS">
+          <Key>
+            <PropertyRef Name="VCLINICNO" />
+            <PropertyRef Name="DVISITDATE" />
+            <PropertyRef Name="VNAME" />
+            <PropertyRef Name="NSEX" />
+            <PropertyRef Name="DBIRTHDATE" />
+            <PropertyRef Name="VVISITDEPT" />
+            <PropertyRef Name="NALLOYMONEY" />
+            <PropertyRef Name="NBALANCE" />
+          </Key>
+          <Property Name="VCLINICNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DVISITDATE" Type="DateTime" Nullable="false" />
+          <Property Name="VPATIENTID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PINYINMA" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="NSEX" Type="Boolean" Nullable="false" />
+          <Property Name="DBIRTHDATE" Type="DateTime" Nullable="false" />
+          <Property Name="VVISITDEPT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NSTATUS" Type="Boolean" />
+          <Property Name="NALLOYMONEY" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="NBALANCE" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="VIDNO" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="Entities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="V_COST_INFO" EntityType="Self.V_COST_INFO" />
+          <EntitySet Name="V_DICDEPART" EntityType="Self.V_DICDEPART" />
+          <EntitySet Name="V_EXAMITEMS_INFO" EntityType="Self.V_EXAMITEMS_INFO" />
+          <EntitySet Name="V_GHSF_CARD" EntityType="Self.V_GHSF_CARD" />
+          <EntitySet Name="V_GHSF_REGHIS" EntityType="Self.V_GHSF_REGHIS" />
+          <EntitySet Name="V_LABITEMS_INFO" EntityType="Self.V_LABITEMS_INFO" />
+          <EntitySet Name="V_MZ_CHARGEDETAIL" EntityType="Self.V_MZ_CHARGEDETAIL" />
+          <EntitySet Name="V_PATIENT_BASIC_INFO" EntityType="Self.V_PATIENT_BASIC_INFO" />
+          <EntitySet Name="V_PATIENT_ZY_INFO" EntityType="Self.V_PATIENT_ZY_INFO" />
+          <EntitySet Name="V_REGPLAN" EntityType="Self.V_REGPLAN" />
+          <EntitySet Name="V_STAFF" EntityType="Self.V_STAFF" />
+          <EntitySet Name="V_TJ_PACKAGE" EntityType="Self.V_TJ_PACKAGE" />
+          <EntitySet Name="V_TJ_PEINFO" EntityType="Self.V_TJ_PEINFO" />
+          <EntitySet Name="V_TJ_PETIME" EntityType="Self.V_TJ_PETIME" />
+          <EntitySet Name="V_ZYGL_PREPAY" EntityType="Self.V_ZYGL_PREPAY" />
+          <EntitySet Name="V_ZYGL_REGHIS" EntityType="Self.V_ZYGL_REGHIS" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Model2StoreContainer" CdmEntityContainer="Entities3">
+          <EntitySetMapping Name="V_COST_INFO">
+            <EntityTypeMapping TypeName="Model2.V_COST_INFO">
+              <MappingFragment StoreEntitySet="V_COST_INFO">
+                <ScalarProperty Name="NFEE_ID" ColumnName="NFEE_ID" />
+                <ScalarProperty Name="VCLINICNO" ColumnName="VCLINICNO" />
+                <ScalarProperty Name="VITEM_NAME" ColumnName="VITEM_NAME" />
+                <ScalarProperty Name="DFEE_DATE" ColumnName="DFEE_DATE" />
+                <ScalarProperty Name="VITEM_UNITS" ColumnName="VITEM_UNITS" />
+                <ScalarProperty Name="NITEM_PRICE" ColumnName="NITEM_PRICE" />
+                <ScalarProperty Name="NITEM_SL" ColumnName="NITEM_SL" />
+                <ScalarProperty Name="NITEM_MONEY" ColumnName="NITEM_MONEY" />
+                <ScalarProperty Name="VDEPARTNAME" ColumnName="VDEPARTNAME" />
+                <ScalarProperty Name="VFEE_OPERATENAME" ColumnName="VFEE_OPERATENAME" />
+                <ScalarProperty Name="NBACK_SL" ColumnName="NBACK_SL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_DICDEPART">
+            <EntityTypeMapping TypeName="Model2.V_DICDEPART">
+              <MappingFragment StoreEntitySet="V_DICDEPART">
+                <ScalarProperty Name="VDEPARTCODE" ColumnName="VDEPARTCODE" />
+                <ScalarProperty Name="VDEPARTNAME" ColumnName="VDEPARTNAME" />
+                <ScalarProperty Name="NOPHZID" ColumnName="NOPHZID" />
+                <ScalarProperty Name="PINYINMA" ColumnName="PINYINMA" />
+                <ScalarProperty Name="NISDISABLED" ColumnName="NISDISABLED" />
+                <ScalarProperty Name="NHOSID" ColumnName="NHOSID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_EXAMITEMS_INFO">
+            <EntityTypeMapping TypeName="Model2.V_EXAMITEMS_INFO">
+              <MappingFragment StoreEntitySet="V_EXAMITEMS_INFO">
+                <ScalarProperty Name="VEXAM_ID" ColumnName="VEXAM_ID" />
+                <ScalarProperty Name="VPATIENT_ID" ColumnName="VPATIENT_ID" />
+                <ScalarProperty Name="VEXAM_POSITION" ColumnName="VEXAM_POSITION" />
+                <ScalarProperty Name="DAPPLY_DATE" ColumnName="DAPPLY_DATE" />
+                <ScalarProperty Name="VAPPLY_DEPT" ColumnName="VAPPLY_DEPT" />
+                <ScalarProperty Name="VAPPLY_DOCTOR" ColumnName="VAPPLY_DOCTOR" />
+                <ScalarProperty Name="NEXAM_RESULT" ColumnName="NEXAM_RESULT" />
+                <ScalarProperty Name="MZORZY" ColumnName="MZORZY" />
+                <ScalarProperty Name="VCLINICNO" ColumnName="VCLINICNO" />
+                <ScalarProperty Name="DEXECUTE" ColumnName="DEXECUTE" />
+                <ScalarProperty Name="EXEDOCTORNAME" ColumnName="EXEDOCTORNAME" />
+                <ScalarProperty Name="VITEMNAME" ColumnName="VITEMNAME" />
+                <ScalarProperty Name="VUNITS" ColumnName="VUNITS" />
+                <ScalarProperty Name="NACCOUNT" ColumnName="NACCOUNT" />
+                <ScalarProperty Name="VNAME" ColumnName="VNAME" />
+                <ScalarProperty Name="NSEX" ColumnName="NSEX" />
+                <ScalarProperty Name="NAGE" ColumnName="NAGE" />
+                <ScalarProperty Name="SQDEPARTNAME" ColumnName="SQDEPARTNAME" />
+                <ScalarProperty Name="SQDOCTORNAME" ColumnName="SQDOCTORNAME" />
+                <ScalarProperty Name="VRESULT_DESP" ColumnName="VRESULT_DESP" />
+                <ScalarProperty Name="VDIAGNOSE" ColumnName="VDIAGNOSE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_GHSF_CARD">
+            <EntityTypeMapping TypeName="Model2.V_GHSF_CARD">
+              <MappingFragment StoreEntitySet="V_GHSF_CARD">
+                <ScalarProperty Name="VCARDNO" ColumnName="VCARDNO" />
+                <ScalarProperty Name="VCARDID" ColumnName="VCARDID" />
+                <ScalarProperty Name="VPATIENTID" ColumnName="VPATIENTID" />
+                <ScalarProperty Name="NCARDSTATE" ColumnName="NCARDSTATE" />
+                <ScalarProperty Name="VNAME" ColumnName="VNAME" />
+                <ScalarProperty Name="VIDNO" ColumnName="VIDNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_GHSF_REGHIS">
+            <EntityTypeMapping TypeName="Model2.V_GHSF_REGHIS">
+              <MappingFragment StoreEntitySet="V_GHSF_REGHIS">
+                <ScalarProperty Name="VCLINICNO" ColumnName="VCLINICNO" />
+                <ScalarProperty Name="DVISITDATE" ColumnName="DVISITDATE" />
+                <ScalarProperty Name="VAPPTIME" ColumnName="VAPPTIME" />
+                <ScalarProperty Name="VPATIENTID" ColumnName="VPATIENTID" />
+                <ScalarProperty Name="VNAME" ColumnName="VNAME" />
+                <ScalarProperty Name="PINYINMA" ColumnName="PINYINMA" />
+                <ScalarProperty Name="NSEX" ColumnName="NSEX" />
+                <ScalarProperty Name="DBIRTHDATE" ColumnName="DBIRTHDATE" />
+                <ScalarProperty Name="NREGSTATUS" ColumnName="NREGSTATUS" />
+                <ScalarProperty Name="VVISITDEPT" ColumnName="VVISITDEPT" />
+                <ScalarProperty Name="VDOCTOR" ColumnName="VDOCTOR" />
+                <ScalarProperty Name="VIDNO" ColumnName="VIDNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_LABITEMS_INFO">
+            <EntityTypeMapping TypeName="Model2.V_LABITEMS_INFO">
+              <MappingFragment StoreEntitySet="V_LABITEMS_INFO">
+                <ScalarProperty Name="VLAB_ID" ColumnName="VLAB_ID" />
+                <ScalarProperty Name="VITEM_CODE" ColumnName="VITEM_CODE" />
+                <ScalarProperty Name="ITEMNAMEMX" ColumnName="ITEMNAMEMX" />
+                <ScalarProperty Name="VITEM_NAME" ColumnName="VITEM_NAME" />
+                <ScalarProperty Name="NUNITS" ColumnName="NUNITS" />
+                <ScalarProperty Name="NACCOUNT" ColumnName="NACCOUNT" />
+                <ScalarProperty Name="VPATIENT_ID" ColumnName="VPATIENT_ID" />
+                <ScalarProperty Name="DAPPLY_DATE" ColumnName="DAPPLY_DATE" />
+                <ScalarProperty Name="VAPPLY_DEPT" ColumnName="VAPPLY_DEPT" />
+                <ScalarProperty Name="VAPPLY_DOCTOR" ColumnName="VAPPLY_DOCTOR" />
+                <ScalarProperty Name="NLAB_RESULT" ColumnName="NLAB_RESULT" />
+                <ScalarProperty Name="NFLAG" ColumnName="NFLAG" />
+                <ScalarProperty Name="VCLINICNO" ColumnName="VCLINICNO" />
+                <ScalarProperty Name="DEXECUTE" ColumnName="DEXECUTE" />
+                <ScalarProperty Name="SQDEPART" ColumnName="SQDEPART" />
+                <ScalarProperty Name="SQSTAFFNAME" ColumnName="SQSTAFFNAME" />
+                <ScalarProperty Name="PATIENTNAME" ColumnName="PATIENTNAME" />
+                <ScalarProperty Name="NSEX" ColumnName="NSEX" />
+                <ScalarProperty Name="NAGE" ColumnName="NAGE" />
+                <ScalarProperty Name="EXEDOCTORNAME" ColumnName="EXEDOCTORNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_MZ_CHARGEDETAIL">
+            <EntityTypeMapping TypeName="Model2.V_MZ_CHARGEDETAIL">
+              <MappingFragment StoreEntitySet="V_MZ_CHARGEDETAIL">
+                <ScalarProperty Name="VCLINICNO" ColumnName="VCLINICNO" />
+                <ScalarProperty Name="VDEPARTCODE" ColumnName="VDEPARTCODE" />
+                <ScalarProperty Name="VDEPARTNAME" ColumnName="VDEPARTNAME" />
+                <ScalarProperty Name="VPRESC_ID" ColumnName="VPRESC_ID" />
+                <ScalarProperty Name="LSH" ColumnName="LSH" />
+                <ScalarProperty Name="VDOCTOR_ID" ColumnName="VDOCTOR_ID" />
+                <ScalarProperty Name="VDOCTOR_NAME" ColumnName="VDOCTOR_NAME" />
+                <ScalarProperty Name="DPRESC_DATE" ColumnName="DPRESC_DATE" />
+                <ScalarProperty Name="VITEM_CODE" ColumnName="VITEM_CODE" />
+                <ScalarProperty Name="VITEM_NAME" ColumnName="VITEM_NAME" />
+                <ScalarProperty Name="NPRICE" ColumnName="NPRICE" />
+                <ScalarProperty Name="NSL" ColumnName="NSL" />
+                <ScalarProperty Name="VUNITS" ColumnName="VUNITS" />
+                <ScalarProperty Name="NCOSTS" ColumnName="NCOSTS" />
+                <ScalarProperty Name="NSTATUS" ColumnName="NSTATUS" />
+                <ScalarProperty Name="VTYPEID" ColumnName="VTYPEID" />
+                <ScalarProperty Name="VTYPENAME" ColumnName="VTYPENAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_PATIENT_BASIC_INFO">
+            <EntityTypeMapping TypeName="Model2.V_PATIENT_BASIC_INFO">
+              <MappingFragment StoreEntitySet="V_PATIENT_BASIC_INFO">
+                <ScalarProperty Name="VPATIENTID" ColumnName="VPATIENTID" />
+                <ScalarProperty Name="VNAME" ColumnName="VNAME" />
+                <ScalarProperty Name="VSEX" ColumnName="VSEX" />
+                <ScalarProperty Name="VBIRTHDATE" ColumnName="VBIRTHDATE" />
+                <ScalarProperty Name="VAGE" ColumnName="VAGE" />
+                <ScalarProperty Name="VIDNO" ColumnName="VIDNO" />
+                <ScalarProperty Name="VBIRTHPLACE" ColumnName="VBIRTHPLACE" />
+                <ScalarProperty Name="VPRESENTADDRESS" ColumnName="VPRESENTADDRESS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_PATIENT_ZY_INFO">
+            <EntityTypeMapping TypeName="Model2.V_PATIENT_ZY_INFO">
+              <MappingFragment StoreEntitySet="V_PATIENT_ZY_INFO">
+                <ScalarProperty Name="VPATIENTID" ColumnName="VPATIENTID" />
+                <ScalarProperty Name="VCLINICNO" ColumnName="VCLINICNO" />
+                <ScalarProperty Name="VNAME" ColumnName="VNAME" />
+                <ScalarProperty Name="DVISITDATE" ColumnName="DVISITDATE" />
+                <ScalarProperty Name="VSEX" ColumnName="VSEX" />
+                <ScalarProperty Name="VBIRTHDATE" ColumnName="VBIRTHDATE" />
+                <ScalarProperty Name="VAGE" ColumnName="VAGE" />
+                <ScalarProperty Name="VIDNO" ColumnName="VIDNO" />
+                <ScalarProperty Name="VDEPARTNAME" ColumnName="VDEPARTNAME" />
+                <ScalarProperty Name="NAPPTIME" ColumnName="NAPPTIME" />
+                <ScalarProperty Name="NSTATUS" ColumnName="NSTATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_REGPLAN">
+            <EntityTypeMapping TypeName="Model2.V_REGPLAN">
+              <MappingFragment StoreEntitySet="V_REGPLAN">
+                <ScalarProperty Name="VPLANID" ColumnName="VPLANID" />
+                <ScalarProperty Name="VDOCTORID" ColumnName="VDOCTORID" />
+                <ScalarProperty Name="NTIMEDESC" ColumnName="NTIMEDESC" />
+                <ScalarProperty Name="SJD" ColumnName="SJD" />
+                <ScalarProperty Name="NREGLIMITS" ColumnName="NREGLIMITS" />
+                <ScalarProperty Name="NAPPLIMITS" ColumnName="NAPPLIMITS" />
+                <ScalarProperty Name="NREGNUMBER" ColumnName="NREGNUMBER" />
+                <ScalarProperty Name="NAPPNUMBER" ColumnName="NAPPNUMBER" />
+                <ScalarProperty Name="DCLINICDATE" ColumnName="DCLINICDATE" />
+                <ScalarProperty Name="VDEPTID" ColumnName="VDEPTID" />
+                <ScalarProperty Name="NHOSID" ColumnName="NHOSID" />
+                <ScalarProperty Name="GHF" ColumnName="GHF" />
+                <ScalarProperty Name="ZLF" ColumnName="ZLF" />
+                <ScalarProperty Name="HAOBIE" ColumnName="HAOBIE" />
+                <ScalarProperty Name="VDEPARTNAME" ColumnName="VDEPARTNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_STAFF">
+            <EntityTypeMapping TypeName="Model2.V_STAFF">
+              <MappingFragment StoreEntitySet="V_STAFF">
+                <ScalarProperty Name="VSTAFFCODE" ColumnName="VSTAFFCODE" />
+                <ScalarProperty Name="VSTAFFNAME" ColumnName="VSTAFFNAME" />
+                <ScalarProperty Name="PINYINMA" ColumnName="PINYINMA" />
+                <ScalarProperty Name="VLOGINUSERNAME" ColumnName="VLOGINUSERNAME" />
+                <ScalarProperty Name="VLOGINPASSWORD" ColumnName="VLOGINPASSWORD" />
+                <ScalarProperty Name="NSTAFFSTATUS" ColumnName="NSTAFFSTATUS" />
+                <ScalarProperty Name="NROLEID" ColumnName="NROLEID" />
+                <ScalarProperty Name="VROLENAME" ColumnName="VROLENAME" />
+                <ScalarProperty Name="VDEPARTCODE" ColumnName="VDEPARTCODE" />
+                <ScalarProperty Name="VDEPARTNAME" ColumnName="VDEPARTNAME" />
+                <ScalarProperty Name="NJOBID" ColumnName="NJOBID" />
+                <ScalarProperty Name="NPROFESSIONID" ColumnName="NPROFESSIONID" />
+                <ScalarProperty Name="VPROFESSIONNAME" ColumnName="VPROFESSIONNAME" />
+                <ScalarProperty Name="NOPHZID" ColumnName="NOPHZID" />
+                <ScalarProperty Name="NSEX" ColumnName="NSEX" />
+                <ScalarProperty Name="NSEXNAME" ColumnName="NSEXNAME" />
+                <ScalarProperty Name="NBIRTHDAY" ColumnName="NBIRTHDAY" />
+                <ScalarProperty Name="NHOSID" ColumnName="NHOSID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_TJ_PACKAGE">
+            <EntityTypeMapping TypeName="Model2.V_TJ_PACKAGE">
+              <MappingFragment StoreEntitySet="V_TJ_PACKAGE">
+                <ScalarProperty Name="NPACKAGEID" ColumnName="NPACKAGEID" />
+                <ScalarProperty Name="VPEGROUPNAME" ColumnName="VPEGROUPNAME" />
+                <ScalarProperty Name="PINYINMA" ColumnName="PINYINMA" />
+                <ScalarProperty Name="NVPRICE" ColumnName="NVPRICE" />
+                <ScalarProperty Name="NDISCOUNTS" ColumnName="NDISCOUNTS" />
+                <ScalarProperty Name="NMONEY" ColumnName="NMONEY" />
+                <ScalarProperty Name="VDESCRIPTION" ColumnName="VDESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_TJ_PEINFO">
+            <EntityTypeMapping TypeName="Model2.V_TJ_PEINFO">
+              <MappingFragment StoreEntitySet="V_TJ_PEINFO">
+                <ScalarProperty Name="VPEID" ColumnName="VPEID" />
+                <ScalarProperty Name="VNAME" ColumnName="VNAME" />
+                <ScalarProperty Name="NSEX" ColumnName="NSEX" />
+                <ScalarProperty Name="NSEXNAME" ColumnName="NSEXNAME" />
+                <ScalarProperty Name="VIDNO" ColumnName="VIDNO" />
+                <ScalarProperty Name="DPEDATE" ColumnName="DPEDATE" />
+                <ScalarProperty Name="DLASTPEDATE" ColumnName="DLASTPEDATE" />
+                <ScalarProperty Name="VPEGROUPNAME" ColumnName="VPEGROUPNAME" />
+                <ScalarProperty Name="NSTATUS" ColumnName="NSTATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_TJ_PETIME">
+            <EntityTypeMapping TypeName="Model2.V_TJ_PETIME">
+              <MappingFragment StoreEntitySet="V_TJ_PETIME">
+                <ScalarProperty Name="VPEID" ColumnName="VPEID" />
+                <ScalarProperty Name="NITEMID" ColumnName="NITEMID" />
+                <ScalarProperty Name="VITEMNAME" ColumnName="VITEMNAME" />
+                <ScalarProperty Name="NPACKAGEID" ColumnName="NPACKAGEID" />
+                <ScalarProperty Name="NMONEY" ColumnName="NMONEY" />
+                <ScalarProperty Name="VITEMADDRESS" ColumnName="VITEMADDRESS" />
+                <ScalarProperty Name="HISNITEMTYPE" ColumnName="HISNITEMTYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_ZYGL_PREPAY">
+            <EntityTypeMapping TypeName="Model2.V_ZYGL_PREPAY">
+              <MappingFragment StoreEntitySet="V_ZYGL_PREPAY">
+                <ScalarProperty Name="VCLINICNO" ColumnName="VCLINICNO" />
+                <ScalarProperty Name="DOPERATORDATE" ColumnName="DOPERATORDATE" />
+                <ScalarProperty Name="VDEPT_CODE" ColumnName="VDEPT_CODE" />
+                <ScalarProperty Name="NMONEY" ColumnName="NMONEY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_ZYGL_REGHIS">
+            <EntityTypeMapping TypeName="Model2.V_ZYGL_REGHIS">
+              <MappingFragment StoreEntitySet="V_ZYGL_REGHIS">
+                <ScalarProperty Name="VCLINICNO" ColumnName="VCLINICNO" />
+                <ScalarProperty Name="DVISITDATE" ColumnName="DVISITDATE" />
+                <ScalarProperty Name="VPATIENTID" ColumnName="VPATIENTID" />
+                <ScalarProperty Name="VNAME" ColumnName="VNAME" />
+                <ScalarProperty Name="PINYINMA" ColumnName="PINYINMA" />
+                <ScalarProperty Name="NSEX" ColumnName="NSEX" />
+                <ScalarProperty Name="DBIRTHDATE" ColumnName="DBIRTHDATE" />
+                <ScalarProperty Name="VVISITDEPT" ColumnName="VVISITDEPT" />
+                <ScalarProperty Name="NSTATUS" ColumnName="NSTATUS" />
+                <ScalarProperty Name="NALLOYMONEY" ColumnName="NALLOYMONEY" />
+                <ScalarProperty Name="NBALANCE" ColumnName="NBALANCE" />
+                <ScalarProperty Name="VIDNO" ColumnName="VIDNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

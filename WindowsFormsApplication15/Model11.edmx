@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="JZHZ">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar2" MaxLength="36" Nullable="false" />
+          <Property Name="NPHONE" Type="number" Precision="11" Scale="0" />
+          <Property Name="VNAME" Type="nvarchar2" MaxLength="10" />
+          <Property Name="NSEX" Type="varchar2" MaxLength="10" />
+          <Property Name="VSFZH" Type="varchar2" MaxLength="20" />
+          <Property Name="VCARD" Type="varchar2" MaxLength="20" />
+          <Property Name="VPWD" Type="varchar2" MaxLength="50" />
+          <Property Name="VPYM" Type="varchar2" MaxLength="10" />
+          <Property Name="DBIRTHDAY" Type="date" />
+          <Property Name="NSTOP" Type="number" Precision="1" Scale="0" />
+          <Property Name="VPATIENTID" Type="varchar2" MaxLength="30" />
+          <Property Name="DCREATE" Type="date" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.JZHZ_RELATION”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="JZHZ_RELATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar2" MaxLength="36" Nullable="false" />
+          <Property Name="NPHONE" Type="number" Precision="11" Scale="0" />
+          <Property Name="VNAME" Type="nvarchar2" MaxLength="10" />
+          <Property Name="VSFZH" Type="varchar2" MaxLength="20" />
+          <Property Name="VCARD" Type="varchar2" MaxLength="20" />
+          <Property Name="VGX" Type="varchar2" MaxLength="20" />
+          <Property Name="VGLID" Type="varchar2" MaxLength="36" />
+          <Property Name="VPYM" Type="varchar2" MaxLength="20" />
+          <Property Name="NSEX" Type="varchar2" MaxLength="10" />
+          <Property Name="DBIRTHDAY" Type="date" />
+          <Property Name="VPATIENTID" Type="varchar2" MaxLength="20" />
+          <Property Name="DCREATE" Type="date" />
+          <Property Name="NISDEF" Type="number" Precision="1" Scale="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_MZSF_PRESC”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_MZSF_PRESC">
+          <Key>
+            <PropertyRef Name="VNAME" />
+          </Key>
+          <Property Name="VCLINICNO" Type="varchar2" MaxLength="20" />
+          <Property Name="VNAME" Type="nvarchar2" MaxLength="20" Nullable="false" />
+          <Property Name="VIDNO" Type="varchar2" MaxLength="18" />
+          <Property Name="VDEPARTNAME" Type="nvarchar2" MaxLength="40" />
+          <Property Name="VDOCTOR_NAME" Type="nvarchar2" MaxLength="60" />
+          <Property Name="VPRESC_ID" Type="varchar2" MaxLength="12" />
+          <Property Name="VITEM_CODE" Type="varchar2" MaxLength="30" />
+          <Property Name="VITEM_NAME" Type="nvarchar2" MaxLength="100" />
+          <Property Name="VUNITS" Type="nvarchar2" MaxLength="30" />
+          <Property Name="NPRICE" Type="number" Precision="38" Scale="0" />
+          <Property Name="NACCOUNT" Type="number" Precision="38" Scale="0" />
+          <Property Name="NCOSTS" Type="number" Precision="38" Scale="0" />
+          <Property Name="DPRESC_DATE" Type="date" />
+          <Property Name="VDEPT_CODENAME" Type="nvarchar2" MaxLength="40" />
+          <Property Name="VITEM_TYPE" Type="number" Precision="38" Scale="0" />
+          <Property Name="VITEM_TYPE_NAME" Type="nvarchar2" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“YWAPP.V_STAFF”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="V_STAFF">
+          <Key>
+            <PropertyRef Name="VSTAFFCODE" />
+            <PropertyRef Name="VSTAFFNAME" />
+            <PropertyRef Name="PINYINMA" />
+            <PropertyRef Name="VLOGINUSERNAME" />
+            <PropertyRef Name="VLOGINPASSWORD" />
+            <PropertyRef Name="NSTAFFSTATUS" />
+            <PropertyRef Name="VDEPARTCODE" />
+            <PropertyRef Name="NJOBID" />
+            <PropertyRef Name="NPROFESSIONID" />
+            <PropertyRef Name="NOPHZID" />
+          </Key>
+          <Property Name="VSTAFFCODE" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="VSTAFFNAME" Type="nvarchar2" MaxLength="60" Nullable="false" />
+          <Property Name="PINYINMA" Type="varchar2" MaxLength="120" Nullable="false" />
+          <Property Name="VLOGINUSERNAME" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="VLOGINPASSWORD" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="NSTAFFSTATUS" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NROLEID" Type="number" Precision="10" Scale="0" />
+          <Property Name="VROLENAME" Type="varchar2" MaxLength="50" />
+          <Property Name="VDEPARTCODE" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="VDEPARTNAME" Type="nvarchar2" MaxLength="40" />
+          <Property Name="NJOBID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NPROFESSIONID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="VPROFESSIONNAME" Type="nvarchar2" MaxLength="20" />
+          <Property Name="NOPHZID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NSEX" Type="number" Precision="1" Scale="0" />
+          <Property Name="NSEXNAME" Type="varchar2" MaxLength="2" />
+          <Property Name="NBIRTHDAY" Type="date" />
+          <Property Name="NHOSID" Type="number" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="JZHZ" EntityType="Self.JZHZ" Schema="YWAPP" store:Type="Tables" />
+          <EntitySet Name="JZHZ_RELATION" EntityType="Self.JZHZ_RELATION" store:Type="Tables" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"JZHZ_RELATION"."ID" AS "ID", 
+"JZHZ_RELATION"."NPHONE" AS "NPHONE", 
+"JZHZ_RELATION"."VNAME" AS "VNAME", 
+"JZHZ_RELATION"."VSFZH" AS "VSFZH", 
+"JZHZ_RELATION"."VCARD" AS "VCARD", 
+"JZHZ_RELATION"."VGX" AS "VGX", 
+"JZHZ_RELATION"."VGLID" AS "VGLID", 
+"JZHZ_RELATION"."VPYM" AS "VPYM", 
+"JZHZ_RELATION"."NSEX" AS "NSEX", 
+"JZHZ_RELATION"."DBIRTHDAY" AS "DBIRTHDAY", 
+"JZHZ_RELATION"."VPATIENTID" AS "VPATIENTID", 
+"JZHZ_RELATION"."DCREATE" AS "DCREATE", 
+"JZHZ_RELATION"."NISDEF" AS "NISDEF"
+FROM "YWAPP"."JZHZ_RELATION" "JZHZ_RELATION"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_MZSF_PRESC" EntityType="Self.V_MZSF_PRESC" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_MZSF_PRESC"."VCLINICNO" AS "VCLINICNO", 
+"V_MZSF_PRESC"."VNAME" AS "VNAME", 
+"V_MZSF_PRESC"."VIDNO" AS "VIDNO", 
+"V_MZSF_PRESC"."VDEPARTNAME" AS "VDEPARTNAME", 
+"V_MZSF_PRESC"."VDOCTOR_NAME" AS "VDOCTOR_NAME", 
+"V_MZSF_PRESC"."VPRESC_ID" AS "VPRESC_ID", 
+"V_MZSF_PRESC"."VITEM_CODE" AS "VITEM_CODE", 
+"V_MZSF_PRESC"."VITEM_NAME" AS "VITEM_NAME", 
+"V_MZSF_PRESC"."VUNITS" AS "VUNITS", 
+"V_MZSF_PRESC"."NPRICE" AS "NPRICE", 
+"V_MZSF_PRESC"."NACCOUNT" AS "NACCOUNT", 
+"V_MZSF_PRESC"."NCOSTS" AS "NCOSTS", 
+"V_MZSF_PRESC"."DPRESC_DATE" AS "DPRESC_DATE", 
+"V_MZSF_PRESC"."VDEPT_CODENAME" AS "VDEPT_CODENAME", 
+"V_MZSF_PRESC"."VITEM_TYPE" AS "VITEM_TYPE", 
+"V_MZSF_PRESC"."VITEM_TYPE_NAME" AS "VITEM_TYPE_NAME"
+FROM "YWAPP"."V_MZSF_PRESC" "V_MZSF_PRESC"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_STAFF" EntityType="Self.V_STAFF" store:Type="Views" store:Schema="YWAPP">
+            <DefiningQuery>SELECT 
+"V_STAFF"."VSTAFFCODE" AS "VSTAFFCODE", 
+"V_STAFF"."VSTAFFNAME" AS "VSTAFFNAME", 
+"V_STAFF"."PINYINMA" AS "PINYINMA", 
+"V_STAFF"."VLOGINUSERNAME" AS "VLOGINUSERNAME", 
+"V_STAFF"."VLOGINPASSWORD" AS "VLOGINPASSWORD", 
+"V_STAFF"."NSTAFFSTATUS" AS "NSTAFFSTATUS", 
+"V_STAFF"."NROLEID" AS "NROLEID", 
+"V_STAFF"."VROLENAME" AS "VROLENAME", 
+"V_STAFF"."VDEPARTCODE" AS "VDEPARTCODE", 
+"V_STAFF"."VDEPARTNAME" AS "VDEPARTNAME", 
+"V_STAFF"."NJOBID" AS "NJOBID", 
+"V_STAFF"."NPROFESSIONID" AS "NPROFESSIONID", 
+"V_STAFF"."VPROFESSIONNAME" AS "VPROFESSIONNAME", 
+"V_STAFF"."NOPHZID" AS "NOPHZID", 
+"V_STAFF"."NSEX" AS "NSEX", 
+"V_STAFF"."NSEXNAME" AS "NSEXNAME", 
+"V_STAFF"."NBIRTHDAY" AS "NBIRTHDAY", 
+"V_STAFF"."NHOSID" AS "NHOSID"
+FROM "YWAPP"."V_STAFF" "V_STAFF"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities11" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="V_STAFF" EntityType="Model.V_STAFF" />
+          <EntitySet Name="JZHZ_RELATION" EntityType="Model.JZHZ_RELATION" />
+          <EntitySet Name="V_MZSF_PRESC" EntityType="Model.V_MZSF_PRESC" />
+          <EntitySet Name="JZHZ" EntityType="Model.JZHZ" />
+        </EntityContainer>
+        <EntityType Name="V_STAFF">
+          <Key>
+            <PropertyRef Name="VSTAFFCODE" />
+            <PropertyRef Name="VSTAFFNAME" />
+            <PropertyRef Name="PINYINMA" />
+            <PropertyRef Name="VLOGINUSERNAME" />
+            <PropertyRef Name="VLOGINPASSWORD" />
+            <PropertyRef Name="NSTAFFSTATUS" />
+            <PropertyRef Name="VDEPARTCODE" />
+            <PropertyRef Name="NJOBID" />
+            <PropertyRef Name="NPROFESSIONID" />
+            <PropertyRef Name="NOPHZID" />
+          </Key>
+          <Property Name="VSTAFFCODE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VSTAFFNAME" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="PINYINMA" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="VLOGINUSERNAME" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VLOGINPASSWORD" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NSTAFFSTATUS" Type="Int32" Nullable="false" />
+          <Property Name="NROLEID" Type="Int32" />
+          <Property Name="VROLENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VDEPARTCODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VDEPARTNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="NJOBID" Type="Int32" Nullable="false" />
+          <Property Name="NPROFESSIONID" Type="Int32" Nullable="false" />
+          <Property Name="VPROFESSIONNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NOPHZID" Type="Int32" Nullable="false" />
+          <Property Name="NSEX" Type="Boolean" />
+          <Property Name="NSEXNAME" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="NBIRTHDAY" Type="DateTime" />
+          <Property Name="NHOSID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="JZHZ_RELATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="NPHONE" Type="Int64" />
+          <Property Name="VNAME" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="VSFZH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VCARD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VGX" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VGLID" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="VPYM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NSEX" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DBIRTHDAY" Type="DateTime" />
+          <Property Name="VPATIENTID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DCREATE" Type="DateTime" />
+          <Property Name="NISDEF" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="V_MZSF_PRESC">
+          <Key>
+            <PropertyRef Name="VNAME" />
+          </Key>
+          <Property Name="VCLINICNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VNAME" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="VIDNO" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="VDEPARTNAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="VDOCTOR_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="VPRESC_ID" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="VITEM_CODE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="VITEM_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VUNITS" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NPRICE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="NACCOUNT" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="NCOSTS" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DPRESC_DATE" Type="DateTime" />
+          <Property Name="VDEPT_CODENAME" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="VITEM_TYPE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="VITEM_TYPE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="JZHZ">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="NPHONE" Type="Int64" />
+          <Property Name="VNAME" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NSEX" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VSFZH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VCARD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VPWD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VPYM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DBIRTHDAY" Type="DateTime" />
+          <Property Name="NSTOP" Type="Boolean" />
+          <Property Name="VPATIENTID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DCREATE" Type="DateTime" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities11" >
+          <EntitySetMapping Name="V_STAFF">
+            <EntityTypeMapping TypeName="Model.V_STAFF">
+              <MappingFragment StoreEntitySet="V_STAFF">
+                <ScalarProperty Name="NHOSID" ColumnName="NHOSID" />
+                <ScalarProperty Name="NBIRTHDAY" ColumnName="NBIRTHDAY" />
+                <ScalarProperty Name="NSEXNAME" ColumnName="NSEXNAME" />
+                <ScalarProperty Name="NSEX" ColumnName="NSEX" />
+                <ScalarProperty Name="NOPHZID" ColumnName="NOPHZID" />
+                <ScalarProperty Name="VPROFESSIONNAME" ColumnName="VPROFESSIONNAME" />
+                <ScalarProperty Name="NPROFESSIONID" ColumnName="NPROFESSIONID" />
+                <ScalarProperty Name="NJOBID" ColumnName="NJOBID" />
+                <ScalarProperty Name="VDEPARTNAME" ColumnName="VDEPARTNAME" />
+                <ScalarProperty Name="VDEPARTCODE" ColumnName="VDEPARTCODE" />
+                <ScalarProperty Name="VROLENAME" ColumnName="VROLENAME" />
+                <ScalarProperty Name="NROLEID" ColumnName="NROLEID" />
+                <ScalarProperty Name="NSTAFFSTATUS" ColumnName="NSTAFFSTATUS" />
+                <ScalarProperty Name="VLOGINPASSWORD" ColumnName="VLOGINPASSWORD" />
+                <ScalarProperty Name="VLOGINUSERNAME" ColumnName="VLOGINUSERNAME" />
+                <ScalarProperty Name="PINYINMA" ColumnName="PINYINMA" />
+                <ScalarProperty Name="VSTAFFNAME" ColumnName="VSTAFFNAME" />
+                <ScalarProperty Name="VSTAFFCODE" ColumnName="VSTAFFCODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JZHZ_RELATION">
+            <EntityTypeMapping TypeName="Model.JZHZ_RELATION">
+              <MappingFragment StoreEntitySet="JZHZ_RELATION">
+                <ScalarProperty Name="NISDEF" ColumnName="NISDEF" />
+                <ScalarProperty Name="DCREATE" ColumnName="DCREATE" />
+                <ScalarProperty Name="VPATIENTID" ColumnName="VPATIENTID" />
+                <ScalarProperty Name="DBIRTHDAY" ColumnName="DBIRTHDAY" />
+                <ScalarProperty Name="NSEX" ColumnName="NSEX" />
+                <ScalarProperty Name="VPYM" ColumnName="VPYM" />
+                <ScalarProperty Name="VGLID" ColumnName="VGLID" />
+                <ScalarProperty Name="VGX" ColumnName="VGX" />
+                <ScalarProperty Name="VCARD" ColumnName="VCARD" />
+                <ScalarProperty Name="VSFZH" ColumnName="VSFZH" />
+                <ScalarProperty Name="VNAME" ColumnName="VNAME" />
+                <ScalarProperty Name="NPHONE" ColumnName="NPHONE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_MZSF_PRESC">
+            <EntityTypeMapping TypeName="Model.V_MZSF_PRESC">
+              <MappingFragment StoreEntitySet="V_MZSF_PRESC">
+                <ScalarProperty Name="VITEM_TYPE_NAME" ColumnName="VITEM_TYPE_NAME" />
+                <ScalarProperty Name="VITEM_TYPE" ColumnName="VITEM_TYPE" />
+                <ScalarProperty Name="VDEPT_CODENAME" ColumnName="VDEPT_CODENAME" />
+                <ScalarProperty Name="DPRESC_DATE" ColumnName="DPRESC_DATE" />
+                <ScalarProperty Name="NCOSTS" ColumnName="NCOSTS" />
+                <ScalarProperty Name="NACCOUNT" ColumnName="NACCOUNT" />
+                <ScalarProperty Name="NPRICE" ColumnName="NPRICE" />
+                <ScalarProperty Name="VUNITS" ColumnName="VUNITS" />
+                <ScalarProperty Name="VITEM_NAME" ColumnName="VITEM_NAME" />
+                <ScalarProperty Name="VITEM_CODE" ColumnName="VITEM_CODE" />
+                <ScalarProperty Name="VPRESC_ID" ColumnName="VPRESC_ID" />
+                <ScalarProperty Name="VDOCTOR_NAME" ColumnName="VDOCTOR_NAME" />
+                <ScalarProperty Name="VDEPARTNAME" ColumnName="VDEPARTNAME" />
+                <ScalarProperty Name="VIDNO" ColumnName="VIDNO" />
+                <ScalarProperty Name="VNAME" ColumnName="VNAME" />
+                <ScalarProperty Name="VCLINICNO" ColumnName="VCLINICNO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JZHZ">
+            <EntityTypeMapping TypeName="Model.JZHZ">
+              <MappingFragment StoreEntitySet="JZHZ">
+                <ScalarProperty Name="DCREATE" ColumnName="DCREATE" />
+                <ScalarProperty Name="VPATIENTID" ColumnName="VPATIENTID" />
+                <ScalarProperty Name="NSTOP" ColumnName="NSTOP" />
+                <ScalarProperty Name="DBIRTHDAY" ColumnName="DBIRTHDAY" />
+                <ScalarProperty Name="VPYM" ColumnName="VPYM" />
+                <ScalarProperty Name="VPWD" ColumnName="VPWD" />
+                <ScalarProperty Name="VCARD" ColumnName="VCARD" />
+                <ScalarProperty Name="VSFZH" ColumnName="VSFZH" />
+                <ScalarProperty Name="NSEX" ColumnName="NSEX" />
+                <ScalarProperty Name="VNAME" ColumnName="VNAME" />
+                <ScalarProperty Name="NPHONE" ColumnName="NPHONE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
