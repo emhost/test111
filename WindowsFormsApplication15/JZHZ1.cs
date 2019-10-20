@@ -5,7 +5,7 @@ namespace WindowsFormsApplication15
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
+    //323
     [Table("YWAPP.JZHZ")]
     public partial class JZHZ1
     {
