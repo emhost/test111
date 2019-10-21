@@ -50,7 +50,7 @@ namespace WindowsFormsApplication15
                 m.SaveChanges();
             }
 
-            MessageBox.Show("sss12311");
+            MessageBox.Show("sss1231155");
         }
 
         private void button2_Click(object sender, EventArgs e)
