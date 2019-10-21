@@ -37,7 +37,7 @@ namespace WindowsFormsApplication15
                 m.SaveChanges();
                 t.Commit();
 
-                MessageBox.Show("sss212222233");
+                MessageBox.Show("uyyyyyyyyyy");
             }
 
             using (Entities11 m = new WindowsFormsApplication15.Entities11())
@@ -50,7 +50,7 @@ namespace WindowsFormsApplication15
                 m.SaveChanges();
             }
 
-            MessageBox.Show("sss");
+            MessageBox.Show("sss12311");
         }
 
         private void button2_Click(object sender, EventArgs e)
